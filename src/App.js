@@ -1,12 +1,14 @@
+
 import React, { useEffect, useState } from 'react';
 import Recipe from './Recipe';
 import './App.css';
+require('dotenv').config();
 
 const App = () => {
 
   //Food reciepe API Info
-  const APP_ID = "693d0772";
-  const APP_KEY = "c0bc2e10cb309603392da13e540e6e2f";
+  const APP_ID = process.env.REACT_APP_API_ID;
+  const APP_KEY = process.env.REACT_APP_API_KEY;
 
   //Store recipe info
   const [recipes, setRecipes] = useState([]);
@@ -27,6 +29,7 @@ const getRecipes = async () => {
   
   try { 
 const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
+
   //After data comes
 const data = await response.json();
 
@@ -37,6 +40,7 @@ const data = await response.json();
   } catch(errorReason) { 
   // code on error
   console.log("Response didnt go through");
+  console.log(errorReason);
 }
  
 };
