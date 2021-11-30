@@ -1,4 +1,4 @@
-# About Application
+# React-recipe-app
 Edanam Recipe API using react hooks to find a recipe by searching food item in search bar
 
 ## Preview of application
